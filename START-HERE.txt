@@ -1,0 +1,16 @@
+THE CHURCH — V3 WEBSITE PACKAGE
+
+1. Open README.md for GitHub Pages deployment instructions.
+2. For the full local experience (including 3D), open a terminal in this website folder and run:
+   npm run dev
+3. Open the local address printed by the preview server.
+
+You can also double-click index.html for a basic offline preview. Local file previews cannot load the 3D JavaScript module; use the local server above or GitHub Pages for 3D.
+
+The contact form prepares an email for the visitor to review and send. It does not silently submit a message.
+
+The source audit, photography provenance and verification notes are in docs/.
+
+This is a new implementation based on the real public studio site. The V2 ZIP from the prior conversation was unavailable in this chat and could not be merged.
+
+V3 uses local relative pages and assets. There is no fixed publishing host in the website. The share image is the bundled API console loading screen.

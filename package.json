@@ -1,0 +1,16 @@
+{
+  "name": "the-church-recording-studio",
+  "version": "4.1.0",
+  "private": true,
+  "description": "Buildless, self-hosted GitHub Pages website for The Church Recording Studio, Pittsburgh.",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "node scripts/serve.mjs",
+    "build": "node scripts/build.mjs",
+    "check": "node scripts/check.mjs",
+    "configure": "node scripts/configure.mjs"
+  }
+}

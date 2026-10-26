@@ -1,0 +1,115 @@
+[
+  {
+    "asset": "cathedral.jpg",
+    "url": "https://images.squarespace-cdn.com/content/v1/58a38f5d1b10e34d8f1bc089/1487805894539-8XW8AUDEDXQS6JX5A87Q/IMG_6632.jpg",
+    "source": "https://www.thechurchrecordingstudio.com/gallery",
+    "credit": "The Church Recording Studio; individual photographer not identified on source",
+    "rights": "Studio-owned website assets; no open license asserted. Used for commissioned studio redesign."
+  },
+  {
+    "asset": "tape.jpg",
+    "url": "https://images.squarespace-cdn.com/content/v1/58a38f5d1b10e34d8f1bc089/1487805881405-OKMEN8KYBPNP5N2EGP08/IMG_6518.jpg",
+    "source": "https://www.thechurchrecordingstudio.com/gallery",
+    "credit": "The Church Recording Studio; individual photographer not identified on source",
+    "rights": "Studio-owned website assets; no open license asserted. Used for commissioned studio redesign.",
+    "usage": "V2 gallery: actual Sony reel-to-reel photograph, caption Analog tape; optimized tape-1280.webp/tape-1920.webp variants."
+  },
+  {
+    "asset": "grand-piano.jpg",
+    "url": "https://images.squarespace-cdn.com/content/v1/58a38f5d1b10e34d8f1bc089/1487805859286-RN3HM7VSBXMR79B9YKLW/IMG_6467.jpg",
+    "source": "https://www.thechurchrecordingstudio.com/gallery",
+    "credit": "The Church Recording Studio; individual photographer not identified on source",
+    "rights": "Studio-owned website assets; no open license asserted. Used for commissioned studio redesign."
+  },
+  {
+    "asset": "rhodes.jpg",
+    "url": "https://images.squarespace-cdn.com/content/v1/58a38f5d1b10e34d8f1bc089/1487805864835-PF4G0OPUWGBH82OFAB9F/IMG_6483.jpg",
+    "source": "https://www.thechurchrecordingstudio.com/gallery",
+    "credit": "The Church Recording Studio; individual photographer not identified on source",
+    "rights": "Studio-owned website assets; no open license asserted. Used for commissioned studio redesign."
+  },
+  {
+    "asset": "live-room.jpg",
+    "url": "https://images.squarespace-cdn.com/content/v1/58a38f5d1b10e34d8f1bc089/1487805899639-8CL8TL0GIIY4R4ZGT55S/IMG_6634.jpg",
+    "source": "https://www.thechurchrecordingstudio.com/gallery",
+    "credit": "The Church Recording Studio; individual photographer not identified on source",
+    "rights": "Studio-owned website assets; no open license asserted. Used for commissioned studio redesign."
+  },
+  {
+    "asset": "stained-glass.jpg",
+    "url": "https://images.squarespace-cdn.com/content/v1/58a38f5d1b10e34d8f1bc089/1493322010587-W9QS6RCZRN1A9UURAD7H/IMG_7429.jpg",
+    "source": "https://www.thechurchrecordingstudio.com/gallery",
+    "credit": "The Church Recording Studio; individual photographer not identified on source",
+    "rights": "Studio-owned website assets; no open license asserted. Used for commissioned studio redesign.",
+    "usage": "Archived provenance; window-focused gallery/opening usage superseded. No isolated glass UI reference in V2."
+  },
+  {
+    "asset": "console.jpg",
+    "url": "https://images.squarespace-cdn.com/content/v1/58a38f5d1b10e34d8f1bc089/1493322021296-YLTYHYLM8RH4USO2NSZD/IMG_7406.jpg",
+    "source": "https://www.thechurchrecordingstudio.com/gallery",
+    "credit": "The Church Recording Studio; individual photographer not identified on source",
+    "rights": "Studio-owned website assets; no open license asserted. Used for commissioned studio redesign."
+  },
+  {
+    "asset": "dana",
+    "url": "https://images.squarespace-cdn.com/content/v1/58a38f5d1b10e34d8f1bc089/7e643016-398a-4cc8-998c-1e9b58d750bd/IMG_0065.jpg",
+    "source": "https://www.thechurchrecordingstudio.com/staff",
+    "creator": "Not identified on source page",
+    "rights": "Existing studio website asset; no open license asserted.",
+    "usage": "Current standalone V2 personnel profile;4/5 crop with50%0 focal point."
+  },
+  {
+    "asset": "live-performance",
+    "url": "https://i.ytimg.com/vi/jjQFPlDKdzM/maxresdefault.jpg",
+    "source": "https://www.youtube.com/watch?v=jjQFPlDKdzM",
+    "creator": "Video directed and shot by Louie Nice; official artist channel Charles Wesley Godwin",
+    "rights": "Copyright holder retains rights; thumbnail accompanies the official video link/embed."
+  },
+  {
+    "asset": "api-console-loading-v2.jpg",
+    "derivedFrom": "Actual V2 console-opening screenshot at73% progress",
+    "transform": "Actual browser loading-scene capture at1200 \u00d7630",
+    "source": "Local V2 console opening; underlying API installation reference recorded below",
+    "status": "Verified actual console-loading capture at 1200 \u00d7 630. Open Graph and Twitter cards use a dedicated image filename across the homepage, equipment, privacy and legacy redirect pages.",
+    "outputs": [
+      "THECHURCHPGH-v2-share.jpg",
+      "THECHURCHPGH-v2-loading.jpg"
+    ],
+    "aliases": [
+      "social-preview.jpg"
+    ]
+  },
+  {
+    "asset": "studio-b",
+    "url": "https://images.squarespace-cdn.com/content/v1/58a38f5d1b10e34d8f1bc089/1487809811418-FAUTKH07CJGBI2OO7SYJ/image-asset.jpeg",
+    "source": "https://www.thechurchrecordingstudio.com/story",
+    "creator": "Not identified on source page",
+    "rights": "Studio website asset, no open license asserted",
+    "verification": "Visual room assignment checked against facility-page section order and visible equipment."
+  },
+  {
+    "asset": "master-suite",
+    "url": "https://images.squarespace-cdn.com/content/v1/58a38f5d1b10e34d8f1bc089/1493320914072-R9BKK3E9TDR552L3V7JL/IMG_7494.jpg",
+    "source": "https://www.thechurchrecordingstudio.com/story",
+    "creator": "Not identified on source page",
+    "rights": "Studio website asset, no open license asserted",
+    "verification": "Visual room assignment checked against facility-page section order and visible equipment."
+  },
+  {
+    "asset": "control-a",
+    "url": "https://images.squarespace-cdn.com/content/v1/58a38f5d1b10e34d8f1bc089/1493322006040-N8F4HPZ6IZD7QX3L9MCN/IMG_7433.jpg",
+    "source": "https://www.thechurchrecordingstudio.com/gallery",
+    "creator": "Not identified on source page",
+    "rights": "Studio website asset, no open license asserted",
+    "verification": "Visual room assignment checked against facility-page section order and visible equipment."
+  },
+  {
+    "asset": "api-church-640.webp, api-church-1280.webp",
+    "url": "https://apiaudio.com/wp-content/uploads/2026/09/2448-40ch-The-Church-Pittsburgh.jpg",
+    "source": "https://apiaudio.com/product/2448/",
+    "credit": "API Audio \u2014 The Church Studios Pittsburgh, 40-channel 2448 installation; individual photographer not identified",
+    "rights": "Copyrighted manufacturer installation photograph. No open license asserted; retained with source credit for this studio redesign.",
+    "accessed": "2026-10-25",
+    "note": "The separate window crop used in an earlier revision was removed from the shipped assets."
+  }
+]

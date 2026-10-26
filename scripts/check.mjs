@@ -1,0 +1,18 @@
+import {readFile,readdir,stat} from 'node:fs/promises';import {resolve,dirname,extname} from 'node:path';
+let errors=[];let checks=0;const root=resolve('.');
+async function exists(path){try{await stat(path);return true;}catch{return false;}}
+async function walk(path){const result=[];for(const entry of await readdir(path,{withFileTypes:true})){if(['_site','node_modules','.git'].includes(entry.name))continue;const p=resolve(path,entry.name);if(entry.isDirectory())result.push(...await walk(p));else result.push(p);}return result;}
+const files=await walk(root);const htmlFiles=files.filter(f=>extname(f)==='.html');const ids=new Map();
+for(const file of htmlFiles){const text=await readFile(file,'utf8');const found=[...text.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);ids.set(file,new Set(found));if(found.length!==new Set(found).size)errors.push(file+': duplicate IDs');if(!/<html\s+lang="en"/.test(text))errors.push(file+': missing document language');if((text.match(/<h1[\s>]/g)||[]).length!==1)errors.push(file+': expected exactly one H1');if(!/<title>[^<]+<\/title>/.test(text))errors.push(file+': missing title');}
+async function reference(file,value){if(!value||/^(https?:|mailto:|tel:|data:|blob:)/.test(value))return;if(value.startsWith('/'))errors.push(`${file}: root-relative reference ${value}`);const [path,hash]=value.split('#');let target=path?resolve(dirname(file),decodeURIComponent(path.split('?')[0])):file;if(path?.endsWith('/'))target=resolve(target,'index.html');if(!await exists(target)){errors.push(`${file}: missing ${value}`);return;}checks++;if(hash&&ids.has(target)&&!ids.get(target).has(hash))errors.push(`${file}: missing fragment ${value}`);}
+for(const file of files){const ext=extname(file);if(!['.html','.css','.js'].includes(ext)||file.includes('/vendor/'))continue;const text=await readFile(file,'utf8');if(ext==='.html'){
+for(const m of text.matchAll(/\b(?:src|href)="([^"]*)"/g))await reference(file,m[1]);
+for(const m of text.matchAll(/\b(?:imagesrcset|srcset)="([^"]*)"/g))for(const entry of m[1].split(','))await reference(file,entry.trim().split(/\s+/)[0]);
+for(const m of text.matchAll(/<img\b[^>]*>/g)){if(!/\balt="[^"]*"/.test(m[0]))errors.push(file+': image missing alt');if(!/\bwidth=/.test(m[0])||!/\bheight=/.test(m[0]))errors.push(file+': image missing intrinsic size');}
+for(const m of text.matchAll(/<a\b[^>]*target="_blank"[^>]*>/g))if(!/rel="[^"]*noopener/.test(m[0]))errors.push(file+': new-tab link missing noopener');
+if(text.includes('type="application/ld+json"'))for(const m of text.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g))try{JSON.parse(m[1]);checks++;}catch{errors.push('Invalid structured data');}
+}else if(ext==='.css'){for(const m of text.matchAll(/url\(['"]?([^'"\)]+)['"]?\)/g))await reference(file,m[1]);}
+else {for(const m of text.matchAll(/(?:from\s*|import\s*\()['"](\.\.?\/[^'"]+)['"]/g))await reference(file,m[1]);}}
+for(const name of ['index.html','gear.html','privacy.html','404.html','robots.txt','sitemap.xml','.nojekyll','assets/vendor/THREE-LICENSE.txt','assets/fonts/OFL.txt','assets/images/api-console-loading-v2.jpg'])if(!await exists(resolve(name)))errors.push('Required file missing: '+name);
+const home=await readFile('index.html','utf8');for(const fact of ['2020 Dartmore','412 818 1307','info@thechurchrecordingstudio.com','thechurchrecordingstudio/'])if(!home.includes(fact))errors.push('Business fact missing: '+fact);
+if(errors.length){console.error(errors.join('\n'));process.exit(1);}console.log(`PASS — ${checks} local references, fragments, metadata and file checks across ${htmlFiles.length} pages. No broken local paths.`);

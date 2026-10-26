@@ -1,0 +1,583 @@
+/* Current architectural experience. Shared primitives are in style.css. */
+:root{--gutter:clamp(20px,3.4vw,64px);--bg:#171310;--ink:#f2eee5;--muted:#c9bfb2;--accent:#bea083;--light:#e1dfd9;--surface:#28211c;scroll-padding-top:30px}
+.experience{font-size:16px}
+.experience h2{font:400 clamp(48px,6.8vw,104px)/.98 'Libre Caslon Display',Georgia,serif;letter-spacing:-.04em}
+.experience h3{font:400 clamp(30px,3vw,46px)/1.05 'Libre Caslon Display',Georgia,serif;letter-spacing:-.025em}
+.experience .section{padding:120px var(--gutter)}
+.experience .header{background:transparent;padding-top:30px}
+.experience .wordmark{font-size:19px}
+.experience .wordmark span{font-size:12px;letter-spacing:.01em}
+.experience .header nav{gap:42px}
+.experience .header nav a{font-size:14px}
+.experience .nav-cta{gap:12px}
+.experience .hero{height:100svh;min-height:760px;max-height:1200px;padding:0 var(--gutter);display:block;background:#171310}
+.experience .hero-photo{inset:0 0 0 24%;z-index:-2}
+.experience .hero-photo img{height:100%;object-fit:cover;object-position:50% 38%;filter:brightness(.78);animation:church-arrive 1.8s var(--ease) both}
+.experience .hero-shade{inset:0;}
+.experience .hero h1{position:absolute;top:28%;left:27%;font:400 clamp(100px,13.2vw,225px)/.78 'Libre Caslon Display',Georgia,serif;letter-spacing:-.055em;white-space:normal;margin:0;text-shadow:none}
+.experience .hero h1 span{display:block;max-width:none;text-wrap:nowrap;animation:title-enter 1.3s .15s var(--ease) both}
+.experience .hero h1 span+span{margin-top:.13em}
+.hero-location{position:absolute;left:28%;bottom:19%;font-size:15px;line-height:1.5}
+.hero-location p+p{margin:0}
+.experience .hero-foot{position:absolute;bottom:28px;left:var(--gutter);right:var(--gutter);font-size:14px}
+.experience .hero-foot a{min-height:44px;gap:28px}
+.hero-foot a span{font-size:24px}
+.experience .rooms{display:grid;grid-template-columns:29% 1fr;gap:4vw}
+.rooms-navigation{display:flex;flex-direction:column;align-items:flex-start}
+.experience .rooms h2{font-size:clamp(42px,4.3vw,70px);margin-bottom:50px}
+.experience .room-selector{display:flex;flex-direction:column;gap:4px;align-items:flex-start;margin:0}
+.experience .room-selector button{display:block;background:transparent;color:var(--muted);font:400 clamp(27px,3.2vw,48px)/1.1 'Libre Caslon Display',Georgia,serif;padding:12px 0 12px 26px;text-align:left;min-height:56px;position:relative;transition:color .25s,transform .35s var(--ease)}
+.experience .room-selector button::before{content:'';position:absolute;width:9px;height:9px;background:currentColor;left:0;top:calc(50% - 5px);transform:rotate(45deg);opacity:0}
+.experience .room-selector button[aria-pressed=true]{color:var(--ink)}
+.experience .room-selector button[aria-pressed=true]::before{opacity:1}
+.experience .room-selector button:hover{color:var(--accent);transform:translateX(5px)}
+.room-location{font-size:14px;margin-top:auto;padding-top:48px}
+.experience .room-stage{display:flex;flex-direction:column;min-height:0;background:none}
+.experience .room-media{width:100%}
+.experience .room-media>img{width:100%;height:auto;min-height:0;aspect-ratio:1.48;object-fit:cover}
+.experience .room-description{padding:26px 0 0;display:grid;grid-template-columns:1fr 1fr;gap:0 4vw}
+.experience .room-description h3{font-size:32px;grid-column:1;grid-row:1}
+.experience .room-lead{font-size:14px;margin-top:12px;grid-column:1;grid-row:2}
+.experience .room-description #room-detail{font-size:15px;margin-top:18px;grid-column:1;grid-row:3}
+.experience .room-description dl{font-size:14px;margin:0;grid-column:2;grid-row:1/4}
+.experience .room-description dl div{display:block;margin:0 0 15px}
+.experience .room-description dd{text-align:left;color:var(--ink)}
+.experience .room-description .text-link{grid-column:1/-1;margin-top:22px}
+.experience .text-link{font-size:14px;gap:18px}
+.experience .console-chapter{background:#10100f}
+.console-heading,.session-heading,.gallery-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:30px;margin-bottom:50px}
+.console-heading>div{max-width:38%;font-size:16px}
+.console-heading .text-link{margin-top:8px}
+.console-layout{display:grid;grid-template-columns:69% 1fr;gap:4vw;align-items:stretch}
+.console-stage{position:relative;background:#191918;height:600px;overflow:hidden}
+.console-poster{width:100%;height:100%;object-fit:cover;object-position:50% 63%;transition:opacity .4s}
+.console-stage.model-ready .console-poster{opacity:0;pointer-events:none}
+#console-model{position:absolute;inset:0}
+#console-model canvas{display:block;width:100%;height:100%;cursor:grab;touch-action:pan-y}
+#console-model canvas:active{cursor:grabbing}
+.console-load{position:absolute;bottom:24px;left:24px;right:24px;background:var(--ink);color:#171310;padding:18px 22px;font-size:14px;display:flex;align-items:center;justify-content:space-between;gap:15px;text-align:left}
+.console-load:hover{background:var(--accent)}
+.console-orbit{position:absolute;bottom:16px;left:22px;right:22px;display:flex;justify-content:space-between;pointer-events:none}
+.console-orbit button{pointer-events:auto;background:#10100f;color:var(--ink);min-width:44px;min-height:44px;padding:8px 14px;font-size:14px}
+.console-details{padding:0;display:flex;flex-direction:column;align-items:flex-start;min-width:0}
+.console-zones{display:flex;flex-wrap:wrap;gap:0 20px;margin-bottom:42px}
+.console-zones button{background:none;color:var(--muted);padding:9px 0;min-height:44px;font-size:14px}
+.console-zones button[aria-pressed=true]{text-decoration:underline;text-underline-offset:8px;color:var(--ink)}
+.console-details h3{font-size:36px}
+.console-details>p{margin-top:24px;font-size:16px}
+.console-details .console-status{font-size:13px;color:var(--muted);margin-top:auto;padding-top:30px}
+.console-details .model-note{font-size:12px;color:var(--muted);margin-top:16px;line-height:1.5}
+#console-fader{width:100%;margin-top:25px}
+#console-fader label{display:flex;flex-direction:row;flex-wrap:wrap;justify-content:space-between;margin-bottom:4px;font-size:14px}
+#console-fader input{padding:0;border:0;height:44px;min-height:44px;background:transparent;accent-color:var(--accent)}
+#console-fader p{font-size:12px;color:var(--muted)}
+.gear-highlight{display:grid;grid-template-columns:59% 1fr;gap:7vw;margin-top:120px;align-items:center}
+.gear-highlight figure img{width:100%;aspect-ratio:1.5;object-fit:cover}
+.gear-index h3{margin-bottom:35px}
+.gear-index>a{display:block;position:relative;font-size:16px;line-height:1.8;text-decoration:none;padding-right:30px;margin-top:26px}
+.gear-index>a span{position:absolute;right:0;top:0;font-size:22px}
+.gear-index a:hover{text-decoration:underline}
+.experience .listen{background:var(--light);color:var(--dark-ink)}
+.session-heading>p{font-size:16px;line-height:1.5}
+.experience .performance{margin:0}
+.experience .performance img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}
+.experience #load-performance{width:132px;height:132px;min-height:132px;border-radius:0;background:#171310;color:var(--ink);clip-path:polygon(50% 0,100% 50%,50% 100%,0 50%);display:flex;flex-direction:column;gap:8px;align-items:center;justify-content:center;padding:25px}
+.experience #load-performance span{font-size:12px;line-height:1.2;max-width:9ch}
+.experience #load-performance svg{height:26px;width:26px}
+.experience #load-performance:hover{background:#574638}
+.experience .performance-caption p{font-size:14px}
+.experience .performance-caption span,.experience .video-privacy{font-size:12px}
+.experience .people{background:#d1cec6;padding-top:105px;padding-bottom:105px}
+.experience .people h2{font-size:clamp(48px,6vw,88px);margin-bottom:60px}
+.experience .people-layout{display:grid;grid-template-columns:1fr 1fr;gap:8vw}
+.experience .person{display:grid;grid-template-columns:42% 1fr;gap:26px;align-items:end}
+.experience .person:nth-child(2){margin-top:90px}
+.experience .person img{aspect-ratio:3/4;object-fit:cover;filter:grayscale(1)}
+.experience .person h3{font-size:30px}
+.experience .person .role{font-size:13px;margin-top:16px}
+.experience .person .text-link{font-size:13px;margin-top:12px}
+.experience .gallery-layout{display:grid;grid-template-columns:42% 1fr 1fr;gap:3vw;align-items:end}
+.experience .gallery-item.tall{grid-row:auto}
+.experience .gallery-item.tall img{aspect-ratio:2/3}
+.experience .gallery-item:not(.tall) img{aspect-ratio:2/3;object-fit:cover}
+.experience .gallery-item:nth-child(2){align-self:start;margin-top:90px}
+.experience .gallery-item:nth-child(3) img{aspect-ratio:2/3;object-position:65%}
+.experience .gallery-item span{font-size:13px;min-height:30px}
+.experience .gallery-item span span{font-size:22px;margin:0;min-height:0}
+.experience .contact{gap:9vw;background:var(--light);padding-top:110px;padding-bottom:110px}
+.experience .contact-intro h2{font-size:clamp(64px,8vw,120px)}
+.experience .contact address{margin-top:50px;font-size:15px}
+.experience .contact address a:first-child{font-size:24px}
+.experience .contact-note{margin-top:36px;font-size:13px}
+.experience .inquiry h3{font-size:30px;margin-bottom:38px}
+.experience label{font-size:13px}
+.experience input:not([type=range]),.experience textarea,.experience select{background:transparent;border:0;border-bottom:1px solid #7b746b;padding:10px 0;color:var(--dark-ink);border-radius:0}
+.experience .form-pair{gap:26px}
+.experience textarea{min-height:120px}
+.experience input::placeholder,.experience textarea::placeholder{font-size:13px;color:#5e554c}
+.experience .button{background:none;color:inherit;justify-content:space-between;padding:14px 0;min-height:54px;gap:35px;font-size:15px;font-weight:400;text-decoration:none}
+.experience .button::after{content:'↗';font-size:26px}
+.experience .button svg{display:none}
+.experience .button:hover{color:#755a40;transform:translateX(5px)}
+.experience .form-note{font-size:12px}
+.experience .footer{padding-top:60px}
+.experience .footer-row{margin:0;align-items:flex-start}
+.experience .footer-name{font:400 clamp(40px,5vw,76px)/.9 'Libre Caslon Display',Georgia,serif;letter-spacing:-.045em;white-space:normal}
+.experience .footer-row nav{flex-direction:row;gap:30px;font-size:13px}
+.experience .footer-row>div{font-size:13px;gap:8px}
+.opening-replay{background:none;padding:0;min-height:36px}
+.experience .footer-bottom{margin-top:70px;font-size:11px}
+.opening-replay:hover,.motion-toggle:hover{color:var(--accent)}
+@keyframes church-arrive{from{transform:scale(1.045)}to{transform:scale(1)}}
+@media(max-width:1100px){.console-layout{grid-template-columns:64% 1fr;gap:30px}
+.console-stage{height:560px}
+.console-details h3{font-size:30px}
+.experience .person{grid-template-columns:1fr}
+.experience .person img{max-height:380px;aspect-ratio:4/3}
+.experience .person:nth-child(2){margin-top:80px}
+.experience .contact{gap:6vw}
+.experience .footer-row nav{flex-direction:column;gap:12px}
+.experience .rooms{grid-template-columns:30% 1fr;gap:4vw}
+.experience .room-selector button{font-size:32px}
+.experience .room-description{column-gap:25px}
+.experience .room-description #room-detail{font-size:14px}
+.experience .room-description h3{font-size:30px}}
+@media(max-width:800px){.experience .section{padding-top:85px;padding-bottom:85px}
+.experience .hero{min-height:760px}
+.experience .hero h1{left:29%;top:34%;font-size:13vw}
+.hero-location{left:30%;bottom:18%;font-size:13px}
+.experience .header nav{gap:23px}
+.experience .rooms{display:block}
+.rooms-navigation{display:block}
+.experience .rooms h2{font-size:54px;margin-bottom:24px}
+.experience .room-selector{flex-direction:row;gap:16px;flex-wrap:wrap;margin-bottom:28px}
+.experience .room-selector button{font:400 16px/1.4 Chivo,Arial,sans-serif;padding:10px 0 10px 16px;min-height:44px}
+.experience .room-selector button::before{width:6px;height:6px;top:calc(50% - 3px)}
+.room-location{display:none}
+.experience .room-description{grid-template-columns:1fr 1fr}
+.console-heading{align-items:flex-start}
+.console-heading>div{max-width:43%;padding-top:7px;font-size:14px}
+.console-layout{grid-template-columns:1fr}
+.console-stage{height:500px}
+.console-details{display:grid;grid-template-columns:1fr 1fr;gap:0 35px}
+.console-zones{grid-column:1/-1;margin:0 0 25px;gap:26px}
+.console-details h3{grid-column:1;grid-row:2;font-size:35px}
+.console-details>p{grid-column:1;grid-row:3;margin-top:18px;font-size:15px}
+.console-details .console-status{grid-column:2;grid-row:2;margin-top:0;padding-top:0}
+.console-details .model-note{grid-column:2;grid-row:3}
+.console-details #console-fader{grid-column:1/-1;max-width:400px}
+.gear-highlight{margin-top:80px;gap:6vw;grid-template-columns:55% 1fr}
+.gear-index>a{font-size:14px}
+.experience .gallery-layout{grid-template-columns:1fr 1fr;gap:25px}
+.experience .gallery-item.tall{grid-row:span 2}
+.experience .gallery-item:nth-child(2){margin-top:40px}
+.experience .gallery-item:not(.tall) img{aspect-ratio:1.4}
+.experience .contact-intro{display:block}
+.experience .contact-intro h2{font-size:80px}
+.experience .contact address{margin-top:35px}
+.experience .contact{display:grid;grid-template-columns:1fr 1fr;gap:6vw}
+.experience .form-pair{grid-template-columns:1fr;gap:0}
+.experience .footer-name{font-size:50px}}
+@media(max-width:600px){.experience .header{padding:20px var(--gutter)}
+.experience .wordmark{font-size:18px}
+.experience .wordmark span{font-size:11px}
+.experience .menu-toggle{font-size:13px}
+.experience .header nav{background:#171310;padding:15px var(--gutter)}
+.experience .header nav a{font-size:20px;min-height:52px}
+.experience .hero{height:95svh;min-height:650px;max-height:950px}
+.experience .hero-photo{inset:0 0 0 12%}
+.experience .hero-photo img{object-position:52% 30%;filter:brightness(.6)}
+.experience .hero h1{top:38%;left:27%;font-size:16vw;line-height:.83}
+.experience .hero h1 span+span{margin-top:.18em}
+.hero-location{left:28%;bottom:19%;font-size:11px}
+.experience .hero-foot{bottom:20px;font-size:12px;gap:10px}
+.experience .hero-foot a{gap:10px}
+.hero-foot a span{font-size:20px}
+.experience .section{padding:70px var(--gutter)}
+.experience h2{font-size:54px}
+.experience .rooms h2{font-size:50px}
+.experience .room-selector{gap:4px 20px;margin-bottom:23px}
+.experience .room-selector button{font-size:15px}
+.experience .room-media>img{aspect-ratio:1.12}
+.experience .room-description{display:grid;grid-template-columns:1fr 1fr;gap:0 20px;padding-top:22px}
+.experience .room-description h3{font-size:26px;max-width:100%;grid-column:1/-1}
+.experience .room-lead{grid-column:1/-1;font-size:13px;max-width:none;margin-top:12px}
+.experience .room-description #room-detail{font-size:14px;grid-column:1/-1;grid-row:3}
+.experience .room-description dl{grid-column:1/-1;grid-row:4;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:25px;font-size:12px}
+.experience .room-description dl div{margin:0}
+.experience .room-description .text-link{grid-row:5;margin-top:16px}
+.console-heading{display:block;margin-bottom:26px}
+.console-heading>div{max-width:none;margin-top:22px}
+.console-heading .text-link{margin-top:0}
+.console-stage{height:410px;margin:0;}
+.console-load{left:15px;right:15px;bottom:15px;padding:15px;font-size:13px}
+.console-details{display:block}
+.console-zones{gap:0 22px;margin-bottom:25px}
+.console-zones button{font-size:13px}
+.console-details h3{font-size:34px}
+.console-details>p{font-size:15px;max-width:40ch}
+.console-details .console-status{padding-top:0;margin-top:25px}
+.console-details .model-note{font-size:11px;max-width:45ch}
+.gear-highlight{display:block;margin-top:65px}
+.gear-highlight figcaption{font-size:12px}
+.gear-index{margin-top:36px}
+.gear-index h3{font-size:34px;margin-bottom:26px}
+.gear-index>a{font-size:15px;margin-top:23px}
+.session-heading{display:block;margin-bottom:28px}
+.session-heading>p{margin-top:22px;font-size:14px}
+.experience #load-performance{width:90px;height:90px;min-height:90px;padding:18px;gap:4px}
+.experience #load-performance svg{width:20px;height:20px}
+.experience #load-performance span{font-size:10px}
+.experience .performance-caption{display:block}
+.experience .performance-caption p{font-size:12px}
+.experience .performance-caption .text-link{font-size:12px;margin-top:8px}
+.experience .video-privacy{font-size:11px}
+.experience .people h2{font-size:50px;margin-bottom:38px}
+.experience .people-layout{display:block}
+.experience .person{display:grid;grid-template-columns:42% 1fr;gap:20px;align-items:center}
+.experience .person img{aspect-ratio:3/4}
+.experience .person:nth-child(2){margin-top:44px}
+.experience .person h3{font-size:25px}
+.experience .person .role{font-size:11px;margin-top:14px}
+.experience .person .text-link{font-size:11px;margin-top:12px}
+.gallery-heading{margin-bottom:30px;gap:12px}
+.gallery-heading .text-link{font-size:12px}
+.experience .gallery-layout{gap:24px;grid-template-columns:1fr 1fr;align-items:start}
+.experience .gallery-item.tall{grid-column:1/-1;grid-row:auto;width:83%}
+.experience .gallery-item.tall img{aspect-ratio:3/4;object-position:center 60%}
+.experience .gallery-item:nth-child(2){margin:25px 0 0}
+.experience .gallery-item:not(.tall) img{aspect-ratio:2/3}
+.experience .gallery-item span{font-size:11px;gap:10px}
+.experience .contact{display:block}
+.experience .contact-intro h2{font-size:72px}
+.experience .contact address{margin-top:30px;gap:20px;font-size:14px}
+.experience .contact address a:first-child{font-size:23px}
+.experience .contact-note{font-size:12px;margin-top:26px}
+.experience .inquiry{margin-top:55px}
+.experience .inquiry h3{font-size:30px;margin-bottom:28px}
+.experience .form-pair{display:block}
+.experience .footer{padding:45px var(--gutter) 24px}
+.experience .footer-row{display:grid;grid-template-columns:1fr 1fr;gap:35px 25px}
+.experience .footer-name{font-size:44px;grid-column:1/-1}
+.experience .footer-row nav{font-size:12px}
+.experience .footer-row>div{align-items:flex-end;font-size:12px}
+.experience .footer-bottom{margin-top:48px;display:block;font-size:10px}
+.experience .footer-bottom p+p{margin-top:14px}
+.experience .footer-bottom>a{display:inline-block;padding-top:14px}
+.experience #inquiry-result{padding:20px}
+.experience .result-actions{gap:14px}
+.experience .result-actions .button{padding:8px 0}}
+@media(prefers-reduced-motion:reduce){.experience .hero-photo img{animation:none;transform:none}}
+.console-details h3{white-space:pre-line}
+.experience .hero-photo{will-change:transform}
+.experience .hero-location{font-size:18px}
+.experience .wordmark span{font-size:13px}
+.experience .room-description #room-detail,.experience .console-details>p,.experience .gear-index>a,.experience .session-heading>p,.experience .contact address{font-size:16px}
+.experience .console-details .console-status,.experience .console-details .model-note{font-size:13px}
+.experience .hero-foot,.experience .room-lead,.experience .room-description dl,.experience .text-link,.experience label,.experience .form-note,.experience input::placeholder,.experience textarea::placeholder,.experience .person .role,.experience .person .text-link,.experience .gallery-item span,.experience .footer-row nav,.experience .footer-row>div,.experience .footer-bottom,.experience .performance-caption p,.experience .performance-caption span,.experience .video-privacy,#console-fader p{font-size:13px}
+.experience .performance-caption span,.experience .video-privacy{color:var(--dark-ink)}
+.console-poster.model-fallback{opacity:1}
+.experience .room-selector button{color:var(--ink)}
+@media(max-width:600px){.experience .hero-location{font-size:16px;left:28%;right:20px;bottom:16%}
+.experience .hero-foot{font-size:13px}
+.experience .hero-foot a{gap:8px}
+.experience .room-description dl{font-size:13px}
+.experience .room-selector button{font-size:16px}
+.experience .gallery-item span span{font-size:22px}
+.experience .person .role,.experience .person .text-link{font-size:13px}
+.experience .console-zones button{font-size:14px}
+.experience .console-details .console-status,.experience .console-details .model-note{font-size:13px}
+.experience #load-performance span{font-size:13px}
+.experience #load-performance{width:110px;height:110px;min-height:110px}
+.experience .gallery-heading .text-link{font-size:13px}
+.experience .footer-row nav,.experience .footer-row>div{font-size:13px}
+.experience .inquiry h3{font-size:30px}}
+.gear-index>a span{font-size:16px}
+.experience #load-performance span{font-size:13px}
+.experience #load-performance:focus-visible{outline:0;background:var(--ink);color:var(--bg)}
+.experience #load-performance:focus-visible svg{stroke-width:3}
+.experience #console-channel{color:var(--ink);border-color:var(--muted);min-height:44px;padding:8px 0}
+.experience #console-channel option{color:var(--ink);background:#171310}
+#console-fader label{margin-bottom:14px}
+.experience .hero h1,.experience .footer-name{letter-spacing:-.04em}
+.experience .button::after{content:none}
+.experience .button svg{display:block}
+.experience .hero-foot .icon,.console-orbit .icon{width:20px;height:20px}
+.console-orbit button{display:flex;align-items:center;justify-content:center}
+.console-load .icon{width:22px;height:22px}
+.gear-index>a .icon{width:20px;height:20px}
+html:not(.js-ready) .console-zones,html:not(.js-ready) #console-status{display:none}
+.photo-credit{font-size:13px;margin-top:-40px;margin-bottom:30px}
+.subpage .document h2{font-size:clamp(32px,4vw,48px);line-height:1.08}
+.subpage .document h1{font-family:'Libre Caslon Display',Georgia,serif;letter-spacing:-.04em}
+.subpage .document .photo-credit{font-size:13px;margin:0 0 35px}
+.subpage .document input{color:var(--ink);caret-color:var(--ink);border-color:var(--muted)}
+.subpage .document input::placeholder{color:var(--muted)}
+.subpage .footer-row nav{font-size:13px}
+.subpage .footer-bottom{font-size:13px}
+.experience .footer-row nav a,.experience .footer-row>div a,.experience .motion-toggle,.experience .opening-replay{min-height:44px}
+.experience .gallery-item>span span{display:inline-flex;align-items:center;justify-content:center;min-width:24px}
+.experience .contact input,.experience .contact textarea,.experience .contact select{font-size:16px}
+.experience #console-model canvas:focus-visible{outline:3px solid var(--accent);outline-offset:-4px}
+@media(min-width:601px) and (max-width:800px){.experience .contact-intro h2{font-size:60px}}
+@media(max-height:600px){.experience .hero{height:max(560px,100svh);min-height:560px}
+.experience .hero h1{top:27%;font-size:clamp(70px,11vw,158px)}}
+@media(max-height:600px) and (max-width:600px){.experience .hero h1{top:32%;font-size:16vw}}
+@media(max-width:600px){.experience .footer-bottom{font-size:13px}
+.subpage .document h2{font-size:34px}
+.subpage .document .document-photo{height:95vw}
+.experience .footer-row nav a{min-height:44px}}
+.instagram-feature{display:grid;grid-template-columns:1fr minmax(320px,540px);gap:8vw;align-items:start;margin-top:110px}
+.instagram-copy h3{font-size:clamp(42px,5vw,72px);margin-bottom:22px}
+.instagram-copy>.text-link{overflow-wrap:anywhere;word-break:break-word;max-width:100%;display:inline-block;font-size:16px}
+.instagram-copy>.text-link svg{display:inline-block;vertical-align:middle;margin-left:12px;width:20px;height:20px}
+.instagram-copy>p{margin-top:30px;font-size:16px}
+.instagram-copy .embed-note,.embed-note{font-size:13px;color:var(--muted);line-height:1.6}
+.instagram-copy .embed-note{margin-top:20px;max-width:34ch}
+.instagram-widget{min-width:0}
+.instagram-frame{display:block;width:100%;height:710px;border:0;background:#fff;color-scheme:light}
+.embed-actions{display:flex;justify-content:space-between;gap:24px;margin-top:12px}
+.embed-actions .text-link{font-size:13px}
+.instagram-widget>.embed-note{margin-top:12px}
+.instagram-widget>.embed-note:empty{display:none}
+@media(max-width:800px){.instagram-feature{grid-template-columns:1fr minmax(320px,1.2fr);gap:5vw;margin-top:80px}
+.instagram-copy h3{font-size:44px}
+.instagram-copy>.text-link{font-size:14px}
+.instagram-frame{height:680px}}
+@media(max-width:600px){.instagram-feature{display:block;margin-top:65px}
+.instagram-copy{margin-bottom:30px}
+.instagram-copy h3{font-size:44px}
+.instagram-copy>p{margin-top:16px}
+.instagram-copy .embed-note{max-width:40ch}
+.instagram-copy>.text-link{font-size:15px}
+.instagram-frame{height:620px}
+.embed-actions{gap:14px}
+.embed-actions .text-link{font-size:13px}}
+.privacy-document{display:grid;grid-template-columns:32% 1fr;gap:6vw}
+.privacy-document .document-intro{position:sticky;top:30px;align-self:start}
+.privacy-document .document-intro h1{font-size:clamp(52px,7vw,104px)}
+.privacy-document .privacy-copy{max-width:75ch}
+.privacy-document .privacy-copy>h2:first-child{margin-top:0}
+.error-page .error-document{min-height:0;display:grid;grid-template-columns:1fr 28%;gap:8vw;align-items:center}
+.error-document>img{height:440px;width:100%;object-fit:cover;object-position:center 45%;max-width:200px;justify-self:end}
+.error-document h1{max-width:10ch}
+.instagram-widget{container-type:inline-size}
+.instagram-frame{height:calc(225px + 66.667cqw)}
+@media(max-width:900px){.privacy-document{display:block}
+.privacy-document .document-intro{position:static;margin-bottom:55px}
+.privacy-document .document-intro h1{font-size:clamp(52px,8vw,80px)}
+.error-document>img{height:340px;max-width:140px}}
+@media(max-width:600px){.instagram-feature{margin-top:105px}
+.instagram-frame{height:calc(225px + 66.667cqw)}
+.error-page .error-document{grid-template-columns:1fr 23%;gap:20px}
+.error-document>img{height:300px}
+.error-document h1{font-size:44px}
+.error-document .error-actions{margin-top:25px}
+.error-document .text-link{font-size:13px}
+.privacy-document .document-intro{margin-bottom:45px}}
+.experience .person img{aspect-ratio:4/5;width:100%;height:auto;max-height:none;object-fit:cover;object-position:50% 0}
+.experience .person:nth-child(2) img{object-position:12% 0}
+.experience .hero-photo{inset:0}
+.experience .hero h1{left:var(--gutter)}
+.experience .hero-location{left:var(--gutter)}
+@media(min-width:801px) and (min-height:601px){.experience .hero{min-height:680px}}
+@media(max-width:800px){.experience .hero h1{left:var(--gutter);font-size:16vw}
+.experience .hero-location{left:var(--gutter)}}
+@media(max-width:600px){.experience .hero h1{left:var(--gutter);top:34%;font-size:21vw}
+.experience .hero-location{left:var(--gutter);right:var(--gutter);bottom:17%}
+.experience .hero-photo{inset:0}
+.experience .hero-photo img{object-position:50% 34%;filter:brightness(.67)}}
+@media(max-height:600px) and (min-width:601px){.experience .hero h1{font-size:clamp(70px,11vw,158px)}}
+@media(max-height:600px) and (max-width:600px){.experience .hero h1{font-size:21vw;top:28%}}
+a,a *,button,button *,summary{-webkit-user-select:none;user-select:none}
+input,textarea,pre{-webkit-user-select:text;user-select:text}
+.experience .hero-shade{background:rgba(23,19,16,.2)}
+.equipment-group li{text-wrap:balance}
+@media(max-width:600px){.experience .contact-intro h2{font-size:clamp(60px,18vw,72px)}}
+@media(max-width:360px){.experience .gallery-heading{flex-wrap:wrap;align-items:flex-start;gap:12px}.experience .gallery-heading .text-link{flex-basis:100%;max-width:max-content}}
+.experience .contact address a{min-height:44px;display:inline-flex;align-items:center}
+@media(max-width:900px){.experience .contact address .email-link{font-size:14px}}
+
+/* V2 — console to cathedral. Photographic stages, one dark working surface. */
+:root{--console-ground:#10100f;--stage-ground:#191918;--display:clamp(64px,10vw,160px);--detail:clamp(28px,3.1vw,48px)}
+.experience .arrival{position:relative;isolation:isolate}
+.experience .hero{height:100svh;min-height:650px;max-height:1200px;position:sticky;top:0}
+.experience .hero-photo{inset:0;will-change:transform}
+.experience .hero-photo img{object-position:center 38%;filter:brightness(.72);animation:none}
+.experience .hero-shade{background:rgba(23,19,16,.12)}
+.experience .hero h1{top:auto;left:var(--gutter);right:var(--gutter);bottom:18%;font-size:clamp(84px,24vw,390px);line-height:.72;letter-spacing:-.04em;transform:translateY(var(--title-travel,0px));text-align:center}
+.experience .hero h1 span{animation:none}
+.experience .hero h1 .hero-the{font-size:clamp(36px,5vw,80px);line-height:.9;margin:0 0 .22em;text-align:center}
+.experience .hero h1 .hero-church{margin:0}
+.experience .hero-location{left:var(--gutter);top:128px;bottom:auto;font-size:16px}
+.experience .hero-foot{bottom:30px;font-size:13px;animation:none}
+.experience .rooms{position:relative;z-index:2;display:block;padding:0;min-height:105svh;background:var(--bg);scroll-margin-top:0;overflow:hidden}
+.experience .rooms-navigation{position:absolute;z-index:3;top:0;left:0;right:0;padding:26px var(--gutter);display:block;background:var(--bg)}
+.experience .room-selector{display:flex;flex-direction:row;justify-content:space-between;align-items:center;gap:26px;margin:0}
+.experience .room-selector button{font:400 clamp(24px,3.1vw,48px)/1.1 'Libre Caslon Display',Georgia,serif;min-height:58px;padding:6px 0;color:var(--muted);transform:none}
+.experience .room-selector button::before{content:none}
+.experience .room-selector button[aria-pressed=true]{text-decoration:underline;text-underline-offset:10px;text-decoration-thickness:1px}
+.experience .room-selector button:hover{transform:none;color:var(--ink)}
+.experience .room-stage{display:block;position:relative;min-height:105svh;padding-top:110px}
+.experience .room-media{height:70svh;min-height:550px;max-height:900px;overflow:hidden}
+.experience .room-media>img{height:100%;aspect-ratio:auto;object-position:center 55%;filter:brightness(.9)}
+.experience .room-description{display:grid;grid-template-columns:1.25fr 1fr;gap:24px 5vw;padding:0 var(--gutter) 70px;position:relative;background:var(--bg)}
+.room-name-block{grid-column:1;grid-row:1/3;min-width:0;margin-top:-.44em;font:400 clamp(70px,11.5vw,184px)/.9 'Libre Caslon Display',Georgia,serif}
+.experience .room-description h3{font:inherit;line-height:.9;letter-spacing:-.04em;max-width:none;text-wrap:nowrap;position:relative}
+.experience .room-description .room-lead{font:400 13px/1.5 Chivo,Arial,sans-serif;letter-spacing:.015em;margin-top:26px}
+.experience .room-description #room-detail{grid-column:2;grid-row:1;font-size:16px;line-height:1.6;margin:24px 0 0;max-width:42ch}
+.experience .room-description dl{grid-column:2;grid-row:2;display:flex;flex-wrap:wrap;gap:18px 32px;margin:0;font-size:13px}
+.experience .room-description dl div{margin:0}
+.experience .room-description .text-link{grid-column:2;grid-row:3;margin:0;max-width:max-content}
+.experience #rooms[data-room=master] h3{font-size:.73em}
+.no-script-rooms{padding:0 var(--gutter) 70px}
+.room-photo-enter{animation:room-shutter .75s var(--ease)}
+@keyframes room-shutter{from{clip-path:inset(0 12% 0 0);transform:scale(1.035)}to{clip-path:inset(0);transform:scale(1)}}
+.experience .console-chapter{background:var(--console-ground);padding:110px 0 90px;overflow:hidden}
+.console-heading{padding:0 var(--gutter);align-items:flex-end;margin-bottom:0}
+.experience #console-title{font-size:clamp(90px,16vw,240px);line-height:.85;letter-spacing:-.04em;white-space:nowrap}
+.console-heading>div{padding-bottom:6px;max-width:32%;font-size:13px}
+.console-layout{display:flex;flex-direction:column;gap:0}
+.console-stage{height:clamp(500px,49vw,800px);width:100%;background:var(--console-ground);margin:0}
+.console-poster{object-fit:cover;object-position:center 64%}
+.console-load{left:var(--gutter);right:auto;bottom:32px;max-width:calc(100% - var(--gutter) * 2);padding:16px 24px;gap:50px}
+.console-orbit{left:var(--gutter);right:var(--gutter);bottom:25px}
+.console-orbit button{background:transparent}
+.console-details{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px 5vw;align-items:start;padding:30px var(--gutter) 0}
+.console-zones{grid-column:1;grid-row:1/4;display:flex;flex-direction:column;align-items:flex-start;gap:2px;margin:0}
+.console-zones button{font-size:16px;min-height:44px;padding:6px 0}
+.experience .console-details h3{grid-column:2;grid-row:1;font-size:var(--detail)}
+.experience .console-details>p{margin:0;font-size:16px;grid-column:2;grid-row:2}
+.console-details .console-status{grid-column:3;grid-row:1;padding:0;line-height:1.65}
+.console-details .model-note{grid-column:3;grid-row:2;margin:0;font-size:13px}
+#console-fader{grid-column:2/4;grid-row:3;margin-top:0;max-width:560px}
+#console-fader label{display:grid;grid-template-columns:130px 1fr;align-items:center;gap:10px 24px}
+#console-fader input{grid-column:2;grid-row:1}
+#console-fader output{grid-column:1}
+.gear-highlight{grid-template-columns:50% 1fr;margin:130px var(--gutter) 0;gap:9vw;align-items:start}
+.gear-highlight figure{margin-top:70px}
+.gear-highlight figure img{aspect-ratio:1.12;object-position:35% center}
+.gear-index h3{font-size:var(--detail);margin-bottom:40px}
+.gear-index>a{font-size:16px;margin-top:32px}
+.experience .listen{background:var(--console-ground);color:var(--ink);padding:70px 0 100px}
+.session-heading{padding:0 var(--gutter);margin-bottom:40px;align-items:flex-start}
+.experience #listen-title{font-size:var(--display)}
+.video-services{max-width:42%;padding-top:12px}
+.video-services p{font-size:16px}
+.video-services .text-link{margin-top:15px}
+.experience .performance{width:100%;aspect-ratio:16/8.3}
+.experience .performance img{height:100%;aspect-ratio:auto}
+.experience #load-performance{clip-path:none;width:auto;height:auto;min-height:54px;background:var(--ink);color:var(--bg);padding:17px 24px;flex-direction:row;gap:18px;bottom:var(--gutter);left:var(--gutter)}
+.experience #load-performance span{max-width:none;font-size:13px}
+.experience #load-performance svg{width:24px;height:24px}
+.experience #load-performance:hover{background:var(--accent)}
+.experience #load-performance:focus-visible{outline:3px solid var(--ink);outline-offset:5px}
+.experience .performance-caption{padding:0 var(--gutter)}
+.experience .performance-caption p{font-size:16px}
+.experience .performance-caption span,.experience .video-privacy{color:var(--muted);font-size:13px}
+.experience .video-privacy{padding:0 var(--gutter)}
+.experience .people{padding:40px var(--gutter) 120px;background:var(--console-ground);color:var(--ink)}
+.experience .people-layout{display:block}
+.experience .person{display:grid;grid-template-columns:32% 1fr;gap:7vw;align-items:center;margin:0}
+.experience .person>div{grid-row:1;grid-column:2}
+.experience .person img{grid-column:1;grid-row:1;aspect-ratio:4/5;width:100%;max-width:420px;max-height:none;object-position:50% 0}
+.experience .person h3{font-size:clamp(54px,7.2vw,112px);line-height:.94;letter-spacing:-.04em}
+.experience .person .role{margin-top:28px;font-size:13px}
+.experience .person .text-link{font-size:13px}
+.experience .person:nth-child(2){margin-top:90px;grid-template-columns:1fr 32%}
+.experience .person:nth-child(2)>div{grid-column:1;grid-row:1}
+.experience .person:nth-child(2) img{grid-column:2;object-position:12% 0;justify-self:end}
+.experience .gallery{background:var(--bg);padding:100px 0 120px;overflow:hidden}
+.gallery-heading{padding:0 var(--gutter);margin-bottom:50px}
+.experience .gallery-layout{display:flex;gap:var(--gutter);align-items:flex-start;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x proximity;padding:0 var(--gutter) 24px;scrollbar-width:thin;scrollbar-color:var(--muted) var(--bg)}
+.experience .gallery-item,.experience .gallery-item.tall{flex:0 0 42%;width:auto;max-width:none;scroll-snap-align:center;margin:0;overflow:visible}
+.experience .gallery-item:nth-child(2){flex-basis:31%;margin:80px 0 0}
+.experience .gallery-item:nth-child(3){flex-basis:53%;margin:0}
+.experience .gallery-item img,.experience .gallery-item.tall img,.experience .gallery-item:not(.tall) img{height:580px;aspect-ratio:auto;object-fit:cover}
+.experience .gallery-item:nth-child(2) img{height:440px}
+.experience .gallery-item:nth-child(3) img{height:580px;object-position:65%}
+.instagram-feature{margin:140px var(--gutter) 0;grid-template-columns:1fr minmax(320px,540px)}
+.instagram-copy h3{font-size:var(--display);margin-bottom:30px}
+.experience .contact{padding-top:100px;padding-bottom:100px;grid-template-columns:1fr 1fr;gap:7vw}
+.experience .contact-intro h2{font-size:clamp(64px,9vw,140px)}
+.experience .contact address{font-size:16px}
+.experience .footer{padding-top:60px}
+.experience .footer-row{display:grid;grid-template-columns:1fr 1fr;gap:35px}
+.experience .footer-name{font-size:clamp(70px,16vw,245px);line-height:.85;grid-column:1/-1;white-space:nowrap;letter-spacing:-.04em}
+.experience .footer-row nav{display:flex;flex-direction:row;gap:30px}
+.experience .footer-row>div{justify-self:end}
+.experience .footer-bottom{margin-top:40px}
+/* The opening uses the same physical console scene as the equipment chapter. */
+#opening{position:fixed;inset:0;margin:0;max-width:none;width:100%;max-height:none;height:100svh;padding:0;overflow:hidden;background:var(--console-ground);z-index:100;opacity:1;transition:opacity .65s ease}
+#opening:not([open]){display:none}#opening::backdrop{background:var(--console-ground)}.opening-active{overflow:hidden}
+.opening-heading{position:absolute;z-index:2;top:28px;left:var(--gutter);right:var(--gutter);display:flex;justify-content:space-between;align-items:baseline;gap:20px;pointer-events:none}
+.opening-heading p:first-child{font:400 clamp(32px,4vw,64px)/1 'Libre Caslon Display',Georgia,serif;letter-spacing:-.04em}
+.opening-heading p+p{margin:0;font-size:13px}
+#opening-console{position:absolute;inset:100px 0 150px;overflow:hidden}
+#opening-console canvas{display:block;width:100%;height:100%;pointer-events:none}
+#opening-console-fallback{width:100%;height:100%;object-fit:cover;object-position:50% 78%;opacity:.78}
+.opening-bottom{position:absolute;z-index:2;left:var(--gutter);right:var(--gutter);bottom:24px;display:grid;grid-template-columns:1fr auto;align-items:end;gap:16px 30px}
+.opening-bottom>p{font-size:13px;margin:0}
+.opening-bottom>output{font:400 clamp(48px,6vw,90px)/.8 'Libre Caslon Display',Georgia,serif;font-variant-numeric:tabular-nums;letter-spacing:-.04em}
+#opening-progress{height:4px;grid-column:1/-1;background:var(--surface);overflow:hidden}
+#opening-fill{display:block;width:100%;height:100%;background:var(--ink);transform:scaleX(0);transform-origin:left center}
+.opening-bottom>button{grid-column:1/-1;justify-self:end;display:flex;align-items:center;gap:18px;background:none;padding:8px 0;font-size:13px;min-height:44px}
+#opening.is-leaving{opacity:0}
+@media(max-width:1000px){.experience .hero h1{font-size:23.3vw}.experience .hero-location{top:118px}.experience .room-description{grid-template-columns:1fr 1fr}.room-name-block{font-size:10vw}.console-stage{height:540px}.console-details{gap:24px 4vw;grid-template-columns:.8fr 1fr 1fr}.experience .console-details h3{font-size:32px}.experience .person h3{font-size:7.8vw}.experience .gallery-item img,.experience .gallery-item.tall img,.experience .gallery-item:not(.tall) img{height:460px}.experience .gallery-item:nth-child(2) img{height:350px}.experience .gallery-item:nth-child(3) img{height:460px}.instagram-copy h3{font-size:7vw}.instagram-feature{gap:5vw}.experience .contact address .email-link{font-size:13px}}
+@media(max-width:700px){
+.experience .hero{height:100svh;min-height:640px;position:relative}.experience .hero h1{bottom:22%;top:auto;font-size:23vw;line-height:.85}.experience .hero h1 .hero-the{font-size:12vw;margin-bottom:.18em}.experience .hero-location{top:110px;left:var(--gutter);bottom:auto;font-size:13px}.experience .hero-photo img{object-position:center 36%;filter:brightness(.76)}.experience .hero-foot{bottom:24px;gap:15px}.experience .hero-foot a{gap:12px}.experience .hero-foot a:first-child{max-width:110px;line-height:1.3}
+.experience .rooms{min-height:0}.experience .rooms-navigation{position:relative;padding:20px var(--gutter)}.experience .room-selector{gap:15px;flex-wrap:nowrap;margin:0}.experience .room-selector button{font:400 14px/1.2 Chivo,Arial,sans-serif;min-height:44px;padding:8px 0;white-space:nowrap}.experience .room-selector button[aria-pressed=true]{text-underline-offset:7px}.experience .room-stage{padding-top:0;min-height:0}.experience .room-media{height:66svh;min-height:380px;max-height:620px}.experience .room-media>img{aspect-ratio:auto;object-position:50% center}.experience .room-description{display:block;padding:0 var(--gutter) 65px}.room-name-block{font-size:clamp(62px,16vw,112px);margin-top:0;transform:translateY(-.42em);margin-bottom:-.42em}.experience .room-description h3{font-size:inherit}.experience #rooms[data-room=master] h3{font-size:.74em}.experience .room-description .room-lead{margin-top:18px}.experience .room-description #room-detail{margin:28px 0 22px;font-size:16px}.experience .room-description dl{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;font-size:13px;margin:0}.experience .room-description .text-link{margin-top:24px}
+.experience .console-chapter{padding:75px 0 60px}.console-heading{display:block;margin:0}.experience #console-title{font-size:22vw;line-height:.9}.console-heading>div{max-width:none;display:flex;justify-content:space-between;gap:20px;align-items:center;padding:0;margin-top:24px}.console-heading>div p{font-size:13px;max-width:14ch}.console-heading .text-link{font-size:13px;margin:0;gap:12px}.console-stage{height:420px;margin:0}.console-load{padding:14px 18px;font-size:13px;gap:20px}.console-details{display:block;padding:10px var(--gutter) 0}.console-zones{flex-direction:row;gap:0 24px;margin-bottom:28px}.console-zones button{font-size:14px}.experience .console-details h3{font-size:34px}.experience .console-details>p{font-size:16px;margin-top:18px;max-width:40ch}.experience .console-details .console-status,.experience .console-details .model-note{font-size:13px;margin-top:18px}#console-fader{margin-top:28px}#console-fader label{grid-template-columns:110px 1fr}
+.gear-highlight{display:block;margin:80px var(--gutter) 0}.gear-highlight figure{margin:0}.gear-highlight figure img{aspect-ratio:1.15}.gear-index{margin-top:40px}.gear-index h3{font-size:42px;margin-bottom:28px}.gear-index>a{font-size:16px;margin-top:26px}
+.experience .listen{padding:45px 0 65px}.session-heading{display:block;margin-bottom:28px}.experience #listen-title{font-size:22vw}.video-services{max-width:none;padding-top:24px;display:flex;justify-content:space-between;gap:18px;align-items:center}.video-services p{font-size:16px;max-width:18ch}.video-services .text-link{margin:0;font-size:13px;white-space:nowrap}.experience .performance{aspect-ratio:1.2}.experience #load-performance{padding:13px 18px}.experience .performance-caption p{font-size:14px}.experience .performance-caption .text-link{font-size:13px}.experience .video-privacy{font-size:13px}
+.experience .people{padding:40px var(--gutter) 70px}.experience .person,.experience .person:nth-child(2){display:grid;grid-template-columns:42% 1fr;gap:22px;align-items:center}.experience .person img,.experience .person:nth-child(2) img{grid-column:1;aspect-ratio:4/5;max-height:none}.experience .person>div,.experience .person:nth-child(2)>div{grid-column:2}.experience .person h3{font-size:clamp(26px,7.5vw,52px)}.experience .person .role{font-size:13px;margin-top:18px}.experience .person .text-link{font-size:13px;gap:10px}.experience .person:nth-child(2){margin-top:65px}
+.experience .gallery{padding:65px 0 75px}.gallery-heading{margin-bottom:30px}.experience .gallery h2{font-size:64px}.experience .gallery-item,.experience .gallery-item.tall{flex-basis:78%;width:auto}.experience .gallery-item:nth-child(2){flex-basis:64%;margin-top:45px}.experience .gallery-item:nth-child(3){flex-basis:88%}.experience .gallery-item img,.experience .gallery-item.tall img,.experience .gallery-item:not(.tall) img{height:430px}.experience .gallery-item:nth-child(2) img{height:340px}.experience .gallery-item:nth-child(3) img{height:430px}.experience .gallery-item>span{font-size:13px}.instagram-feature{display:block;margin:85px var(--gutter) 0}.instagram-copy h3{font-size:clamp(44px,11vw,64px)}.instagram-copy>.text-link{font-size:14px}.instagram-copy .embed-note{font-size:13px;max-width:35ch}
+.experience .contact{display:block;padding-top:70px;padding-bottom:75px}.experience .contact-intro h2{font-size:19vw}.experience .contact address{font-size:15px}.experience .contact address .email-link{font-size:13px}.experience .inquiry{margin-top:55px}.experience .footer{padding-top:40px}.experience .footer-name{font-size:15.5vw}.experience .footer-row nav{flex-direction:column;gap:5px}.experience .footer-bottom{margin-top:28px}
+.opening-heading{top:25px}.opening-heading p:first-child{font-size:36px}.opening-heading p+p{font-size:13px}#opening-console{inset:90px 0 160px}.opening-bottom{bottom:18px;gap:16px 22px}.opening-bottom>output{font-size:64px}.opening-bottom>p{max-width:23ch;line-height:1.5}
+}
+@media(max-width:360px){.experience .person,.experience .person:nth-child(2){gap:16px}.experience .person h3{font-size:27px}.experience .person .role,.experience .person .text-link{font-size:13px}.experience .room-selector{gap:10px}.experience .room-selector button{font-size:13px}.experience .room-description dl{grid-template-columns:1fr 1fr}.experience .gallery-heading{flex-wrap:nowrap}.gallery-heading .text-link{flex-basis:auto;max-width:none}.experience .gallery h2{font-size:54px}.console-heading>div{gap:12px}.console-heading .text-link{gap:8px}.video-services{display:block}.video-services .text-link{margin-top:12px}.opening-heading p:first-child{font-size:30px}}
+@media(max-height:600px) and (min-width:701px){.experience .hero{min-height:560px}.experience .hero h1{font-size:21vw;bottom:18%}.experience .hero h1 .hero-the{font-size:3.7vw}.experience .hero-location{top:104px}.opening-heading{top:18px}.opening-heading p:first-child{font-size:32px}#opening-console{inset:65px 0 118px}.opening-bottom{bottom:10px;gap:9px 20px}.opening-bottom>output{font-size:48px}.opening-bottom>button{min-height:36px}}
+/* V3 desktop hero: reserve a consistent frame around the name and controls. */
+@media(min-width:701px){
+.experience .hero{height:100svh;min-height:480px;max-height:none;--hero-title-size:min(22vw,370px,42svh)}
+.experience .hero h1{font-size:var(--hero-title-size);bottom:clamp(110px,20svh,190px);line-height:.72}
+.experience .hero h1 .hero-the{font-size:.2em;line-height:1;margin-bottom:.4em}
+.experience .hero-location{top:122px;font-size:15px}
+.experience .hero-foot{bottom:clamp(24px,4svh,42px);font-size:14px}
+}
+@media(prefers-reduced-motion:reduce){.experience .hero{position:relative}.experience .hero h1{transform:none}.room-photo-enter{animation:none}#opening{transition:none}}
+.motion-paused .experience .hero{position:relative}.motion-paused .experience .hero h1{transform:none}
+/* Explicit grid placement keeps operational copy separate from console details. */
+.experience .console-details .console-status{grid-column:3;grid-row:1;margin:0;padding:0;font-size:13px}
+.experience .console-details .model-note{grid-column:3;grid-row:2;margin:0;font-size:13px}
+@media(max-width:700px){.experience .console-details .console-status,.experience .console-details .model-note{margin-top:20px;font-size:14px}.experience .person .role{font-size:14px}.experience .inquiry{margin-top:80px}.experience .performance-caption p{font-size:16px}.experience .form-note{font-size:14px}.experience .instagram-copy .embed-note{font-size:14px}}
+/* Room titles sit in their own content area, clear of the photograph above. */
+.room-name-block{margin-top:0;margin-bottom:0;transform:none}
+.experience .room-description{padding-top:42px}
+.experience .room-description #room-detail{margin-top:0}
+@media(max-width:700px){.room-name-block{margin:0;transform:none}.experience .room-description{padding-top:32px}.experience .room-description #room-detail{margin:28px 0 22px}}
+/* Each chapter draws its background from an actual studio photograph. */
+:root{--api-field:#0b1823;--video-field:#101e18;--people-field:#211711;--archive-field:#1e1b13}
+.experience .console-chapter,.experience .listen,.experience .people,.experience .gallery,.experience .contact{position:relative;isolation:isolate}
+.experience .console-chapter::before,.experience .listen::before,.experience .people::before,.experience .gallery::before,.experience .contact::before{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none;background-repeat:no-repeat;background-size:cover}
+.experience .console-chapter{background:var(--api-field)}
+.experience .console-chapter::before{background-image:url('./images/api-church-1280.webp');background-position:50% 75%;opacity:.16;filter:grayscale(1)}
+.experience .console-stage{background:transparent}
+.experience .console-details{padding-bottom:36px}
+.experience .listen{background:var(--video-field)}
+.experience .listen::before{background-image:url('./images/live-room-1920.webp');background-position:80% 42%;opacity:.22;filter:grayscale(1)}
+.experience .session-heading{padding-top:32px;padding-bottom:32px}
+.experience .people{background:var(--people-field);padding-top:110px;padding-bottom:110px}
+.experience .people::before{background-image:url('./images/cathedral-1920.webp');background-position:center 23%;opacity:.28;filter:grayscale(.8)}
+.experience .person{grid-template-columns:minmax(250px,36%) 1fr;gap:9vw}
+.experience .person img{max-width:480px}
+.experience .person h3{font-size:clamp(64px,8.8vw,140px)}
+.experience .gallery{background:var(--archive-field)}
+.experience .gallery::before{background-image:url('./images/tape-1280.webp');background-position:55% 15%;opacity:.13;filter:grayscale(1)}
+.experience .instagram-copy{align-self:center}
+.experience .contact{background:var(--light)}
+.experience .contact::before{right:52%;background-image:url('./images/grand-piano-1280.webp');background-position:35% center;opacity:.12;filter:grayscale(1)}
+.experience .contact-intro{align-self:start}
+.experience .footer{background:var(--bg)}
+@media(max-width:700px){.experience .people{padding-top:65px;padding-bottom:75px}.experience .person{grid-template-columns:42% 1fr;gap:24px}.experience .person h3{font-size:clamp(29px,7.8vw,52px)}.experience .session-heading{padding-top:0;padding-bottom:0}.experience .contact::before{inset:0 0 auto;height:390px;opacity:.12}.experience .console-chapter::before{background-position:40% center;opacity:.12}.experience .gallery::before{background-size:auto 100%;opacity:.12}}
+@media(max-width:360px){.experience .person{gap:16px}.experience .person h3{font-size:27px}}
